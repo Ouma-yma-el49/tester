@@ -13,7 +13,7 @@ pipeline {
             steps {
                 // Construire une image Docker pour le projet HTML
                 script {
-                    dockerImage = docker.build("tp1:${env.BUILD_ID}")
+                    dockerImage = docker.build("tester:${env.BUILD_ID}")
                 }
             }
         }
