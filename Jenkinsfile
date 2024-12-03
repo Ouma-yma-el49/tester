@@ -11,7 +11,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                // Construire une image Docker pour le projet HTML
+                // Construire une image Docker pour le projet
                 script {
                     dockerImage = docker.build("tester:${env.BUILD_ID}")
                 }
