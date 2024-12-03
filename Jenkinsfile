@@ -31,11 +31,24 @@ pipeline {
 
         stage('Push Docker Image') {
             steps {
-                
-                        dockerImage.push("${env.BUILD_ID}")
-                        dockerImage.push("latest")
-                    }
+                script {
+                    // Pousser l'image Docker vers Docker Hub
+                    dockerImage.push("${env.BUILD_ID}")
+                    dockerImage.push("latest")
                 }
             }
         }
+    }
 
+    post {
+        always {
+            echo 'Pipeline terminé.'
+        }
+        failure {
+            echo 'Pipeline échoué.'
+        }
+        success {
+            echo 'Pipeline exécuté avec succès.'
+        }
+    }
+}
