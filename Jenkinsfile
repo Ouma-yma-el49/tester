@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 // Récupérer le code depuis le dépôt Git
-                git branch: 'main', url: 'https://github.com/Ouma-yma-el49/TP1.git'
+                git branch: 'Main', url: 'https://github.com/Ouma-yma-el49/tester.git'
             }
         }
 
@@ -13,7 +13,7 @@ pipeline {
             steps {
                 // Construire une image Docker pour le projet HTML
                 script {
-                    dockerImage = docker.build("tp1:${env.BUILD_ID}")
+                    dockerImage = docker.build("tester:${env.BUILD_ID}")
                 }
             }
         }
